@@ -70,7 +70,6 @@
     "typescript": "5.7.3"
   },
 "pnpm": {
-  "onlyBuiltDependencies": ["sharp"],
-  "approvedBuilds": ["sharp"]
+  "onlyBuiltDependencies": ["sharp"]
 }
 }
