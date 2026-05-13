@@ -38,7 +38,7 @@ export default function Home() {
       formData.append('file', file)
 
       const response = await fetch(
-        `http://localhost:8000/upload?siem=${siem}&soar=${soar}`,
+        `${process.env.NEXT_PUBLIC_API_URL}/upload?siem=${siem}&soar=${soar}`,
         {
           method: 'POST',
           body: formData,
@@ -172,7 +172,7 @@ export default function Home() {
 
     const deployPromises = findings.map((finding) => {
       const hasPlaybook = finding.soar_playbook !== null && finding.soar_playbook !== undefined
-      return fetch('http://localhost:8000/deploy', {
+      return fetch(`${process.env.NEXT_PUBLIC_API_URL}/deploy`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
